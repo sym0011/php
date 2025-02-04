@@ -1,0 +1,37 @@
+1. A. Develop PHP programs to Use the conditional statements (if-else)
+
+<?php  
+$num=55;  
+if($num%2==0)
+{  
+echo "$num is even number";  
+}
+else
+{  
+echo "$num is odd number";  
+}  
+?>
+
+1. B. Develop PHP programs to Use the conditional statements (Switch)
+
+<?php      
+    $ch = "B.Sc-IT";  
+    switch ($ch)  
+    {    
+        case "BCA":  
+            echo "BCA is 3 years course";  
+            break;  
+        case "Bsc":  
+            echo "Bsc is 3 years course";  
+            break;  
+        case "B.Tech":  
+            echo "B.Tech is 4 years course";  
+            break;  
+        case "B.Sc-IT":  
+            echo "B.Sc-It is 3 years course";  
+            break;  
+        default:  
+            echo "Wrong Choice";  
+            break;  
+    }  
+?>

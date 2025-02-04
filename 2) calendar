@@ -1,0 +1,49 @@
+<?php
+function generateCalendar($month, $year) {
+ // Get the first day of the month and number of days in the month
+ $firstDay = mktime(0, 0, 0, $month, 1, $year);
+ $numberOfDays = date('t', $firstDay); // Get the number of days in the month
+ $dateComponents = getdate($firstDay); // Get the weekday of the first day
+ 
+ // Create an array of days of the week
+ $daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+ 
+ // Start the table and print the header with days of the week
+ echo "<table border='1' cellpadding='10' style='border-collapse: collapse; text-align: center;'>";
+ echo "<tr>";
+ foreach ($daysOfWeek as $day) {
+ echo "<th>$day</th>";
+ }
+ echo "</tr><tr>";
+ 
+ // Add empty cells before the first day of the month
+ $currentDay = 1;
+ for ($i = 0; $i < $dateComponents['wday']; $i++) {
+ echo "<td></td>";
+ }
+ 
+ // Print the days of the month
+ for ($currentDay; $currentDay <= $numberOfDays; $currentDay++) {
+ echo "<td>$currentDay</td>";
+ 
+ // Start a new row after Saturday
+ if (($currentDay + $dateComponents['wday']) % 7 == 0) {
+ echo "</tr><tr>";
+ }
+ }
+ 
+ // Fill in the empty cells after the last day of the month
+ while (($currentDay + $dateComponents['wday']) % 7 != 1) {
+ echo "<td></td>";
+ $currentDay++;
+ }
+ 
+ echo "</tr></table>";
+}
+// Get the current month and year
+$currentMonth = date('m');
+$currentYear = date('Y');
+// Display the calendar for the current month
+echo "<h2>Calendar for " . date('F Y', mktime(0, 0, 0, $currentMonth, 1, $currentYear)) . "</h2>";
+generateCalendar($currentMonth, $currentYear);
+?>

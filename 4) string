@@ -1,0 +1,34 @@
+<?php
+$vowel=0;
+$con=0;
+$str="Jamal Mohamed College";
+echo "Given String: ".$str;
+$capstr = strtoUpper($str);
+echo "<br>";
+echo "Capital String: ".$capstr;
+for($i=0;$i<strlen($str);$i++)
+{
+ switch($str[$i])
+ {
+ case 'a':
+ case 'A':
+ case 'e':
+ case 'E':
+ case 'i':
+ case 'I':
+ case 'o':
+ case 'O':
+ case 'u':
+ case 'U':
+ $vowel++;
+ break;
+ default:
+ if($str[$i] ==" ") continue;
+ $con++;
+ }
+}
+echo "<br>";
+echo "Number of vowels: ".$vowel;
+ echo "<br>";
+ echo " Number of Consonents: ".$con;
+?>

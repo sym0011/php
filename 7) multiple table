@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <center>
+ <h1 style="color: green;">
+ MULTIPLICATION TABLE
+ </h1>
+ 
+ <h3>
+ Program to print multiplication<br>
+ table of any number in PHP
+ </h3>
+ 
+ <form method="POST">
+ Enter a number:
+ <input type="text" name="number">
+ <input type="submit" value="Get Multiplication Table">
+ </form>
+ 
+ <?php
+ // Check if the form is submitted
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ // Get the input number
+ $number = $_POST['number'];
+ // Validate input
+ if (!empty($number) && is_numeric($number)) {
+ echo "<h3>Multiplication Table of $number</h3>";
+ echo "<table border='1' style='border-collapse: collapse; width: 50%; text-align: 
+center;'>";
+ for ($i = 1; $i <= 25; $i++) {
+ $result = $number * $i;
+ echo "<tr>
+ <td>$i × $number</td>
+ <td>$result</td>
+ </tr>";
+ }
+ echo "</table>";
+ } else {
+ echo "<h3 style='color: red;'>Please enter a valid number.</h3>";
+ }
+ }
+ ?>
+ </center>
+</body>
+</html>
